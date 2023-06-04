@@ -9,23 +9,22 @@ import colorSharp from "../assets/img/color-sharp.png";
 export const Skills = () => {
     const responsive = {
         superLargeDesktop: {
-            // the naming can be any, depends on you.
+            // ปรับขนาดให้เข้ากับอุปกรณ์
             breakpoint: { max: 4000, min: 3000 },
             items: 5
         },
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 3
+            items: 3,
+            slidesToSlide: 3
         },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2
-        },
+        
         mobile: {
             breakpoint: { max: 464, min: 0 },
             items: 1
         }
     };
+
 
     return (
         <section className="skill" id="skills">
@@ -55,6 +54,7 @@ export const Skills = () => {
                         </div>
                     </Col>
                 </Row>
+                
             </Container>
             <img className="background-image-left" src={colorSharp} alt="Image" />
         </section>
