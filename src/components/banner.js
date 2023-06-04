@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
-    const toRotate = ["Web Developer", "Web Designer", "UI/UX Designer"];
+    const toRotate = ["Welcome"];
     const [text, setText] = useState('');
     const [delta, setDelta] = useState(300 - Math.random() * 100);
     const period = 2000;
@@ -45,8 +45,8 @@ export const Banner = () => {
                 <Row className="align-item-center">
                     <Col xs={12} md={6} xl={7}>
                         <span className="tagline">Welcome to my Portfolio</span>
-                        <h1>{''}<span className="wrap">{text}</span></h1>
-                        <p>Loading...</p>
+                        <h1>{'Hello! '}<span className="wrap">{text}</span></h1>
+                        <p>Hello. My name is Mr. Supap Nonkaew Nickname is Not. I used to do an internship on the web. have the ability to write php My project at college is a mobile app. Knowledge of JavaScript, React, C#.Net is an additional skill. Because the position I want to do is the software developer in the backend.</p>
                         <button onClick={() => console.log('connect')}>Let's connect <ArrowRightCircle size={25}/></button>
                     </Col>
                     <Col xs={12} md={6} xl={5}>

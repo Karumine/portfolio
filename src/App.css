@@ -33,7 +33,7 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   position: relative;
-  background-color: #8400ff !important;
+  background-color: #121212 !important;
   color: #fff !important;
   font-family: 'Centra', sans-serif !important;
 }
@@ -105,17 +105,23 @@ nav.navbar {
   transition: 0.32s ease-in-out;
 }
 
+/****************navbarcolortab     background-color: rgb(0, 0, 0); **************/
 nav.navbar.scrolled {
   padding: 0px 0;
-  background-color: black;
+  z-index: -9999;
 }
 
-nav.nav .navbar-nav .nav-link.navbar-link {
+nav.navbar a.navbar-brand {
+  width: 9%;
+  
+}
+
+nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
   color: #fff !important;
   letter-spacing: 0.8px;
   padding: 0 25px;
-  font-size: 18px;
+  font-size: 25px;
   opacity: 0.75;
 }
 
@@ -266,7 +272,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 /************************************** Banner Css *************************************/
-
+/*  background-image: url('./assets/img/banner-bg.png');  */
 .banner {
   margin-top: 0;
   padding: 260px 0 100px 0;
@@ -348,7 +354,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 
-/************ Skills Css ************
+/*********************************** Skills Css *****************************************/
 .skill {
   padding: 0 0 50px 0;
   position: relative;
