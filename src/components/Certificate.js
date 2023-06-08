@@ -1,15 +1,15 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { CertificateCard } from "./CertificateCard";
-import colorSharp2 from "../assets/img/color-sharp2.png";
+
 import OrangeVisual from "../assets/img/Orange Visual.png";
-import projImg1 from "../assets/img/project-img1.png";
+
 
 
 export const Certificates = () => {
     const certificates = [
         {
-            title: "Business Startup",
-            description: "Design & Development",
+            title: "Loading",
+            description: "Loading",
             imgUrl: OrangeVisual,
           },
         
@@ -62,7 +62,7 @@ export const Certificates = () => {
                     </Col>
                 </Row>
             </Container>
-            <img className="background-image-right" src={colorSharp2}></img>
+            
         </section >
     )
 }

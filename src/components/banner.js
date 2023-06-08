@@ -2,6 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import headerImg from "../assets/img/logoanime.png"
 import { useEffect, useState } from "react";
+import videobg from "../assets/img/bg.mp4"
 
 export const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
@@ -41,20 +42,28 @@ export const Banner = () => {
 
     return (
         <section className="banner" id="home">
-            <Container>
-                <Row className="align-item-center">
-                    <Col xs={12} md={6} xl={5}>
-                        <img src={headerImg} alt="Header Img" />
-                    </Col>
-                    <Col xs={12} md={6} xl={7}>
-                        <span className="tagline">Welcome to my Portfolio</span>
-                        <h1>{'Hello! '}<span className="wrap">{text}</span></h1>
-                        <p>Hello. My name is Mr. Supap Nonkaew Nickname is Not. I used to do an internship on the web. have the ability to write php My project at college is a mobile app. Knowledge of JavaScript, React, C#.Net is an additional skill. Because the position I want to do is the software developer in the backend.</p>
-                        <button onClick={() => console.log('connect')}>More<ArrowRightCircle size={25} /></button>
-                    </Col>
+            <div classname="main">
+                <video src={videobg} autoPlay loop muted />
+                <div className="content">
+                    <Container>
+                        <Row className="align-item-center">
+                            <Col xs={12} md={6} xl={5}>
+                                <img src={headerImg} alt="Header Img" />
+                            </Col>
+                            <Col xs={12} md={6} xl={7}>
+                                <span className="tagline" >Welcome to my Portfolio</span>
+                                <h1>{'Hello! '}<span className="wrap">{text}</span></h1>
+                                <p>Hello. My name is Mr. Supap Nonkaew Nickname is Not. I used to do an internship on the web. have the ability to write php My project at college is a mobile app. Knowledge of JavaScript, React, C#.Net is an additional skill. Because the position I want to do is the software developer in the backend.</p>
+                                <button onClick={() => console.log('connect')}>More<ArrowRightCircle size={25} /></button>
+                            </Col>
 
-                </Row>
-            </Container>
-        </section>
+                        </Row>
+                        
+                    </Container>
+                    </div>
+                </div>
+        </section >
+
+        
     )
 }
