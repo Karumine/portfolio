@@ -16,7 +16,7 @@ export const Certificates = () => {
     ];
 
     return (
-        <section className="certificate" id="certificate">
+        <section className="certificate" id="certificates">
             <Container>
                 <Row>
                     <Col>

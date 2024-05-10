@@ -7,7 +7,7 @@ import logo from '../assets/img/logo.png';
 import navIcon1 from '../assets/img/nav-icon1.svg';
 import navIcon2 from '../assets/img/nav-icon2.svg';
 import navIcon3 from '../assets/img/nav-icon3.svg';
-
+import resumePdf from '../assets/pdf/Resume.pdf'; // เปลี่ยนเส้นทางไฟล์ PDF ตามต้องการ
 
 export const NavBar = () => {
     const [activeLink, setActiveLink] = useState('home');
@@ -31,6 +31,34 @@ export const NavBar = () => {
         setActiveLink(value);
     }
 
+    const scrollToHome = () => {
+        const homeSection = document.getElementById('home');
+        if (homeSection) {
+            homeSection.scrollIntoView({ behavior: 'smooth' });
+            ontimeupdateActiveLink('home');
+        }
+    }
+
+    const scrollToSkills = () => {
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            skillsSection.scrollIntoView({ behavior: 'smooth' });
+            ontimeupdateActiveLink('skills');
+        }
+    }
+
+    const scrollToCertificates = () => {
+        const certificatesSection = document.getElementById('certificates');
+        if (certificatesSection) {
+            certificatesSection.scrollIntoView({ behavior: 'smooth' });
+            ontimeupdateActiveLink('certificates');
+        }
+    }
+
+    const downloadResume = () => {
+        window.open(resumePdf, '_blank');
+    }
+
     return (
         <Navbar expand="lg" className={scrolled ? "scrolled" : ""}>
             <Container>
@@ -42,9 +70,9 @@ export const NavBar = () => {
                 </Navbar.Toggle>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => ontimeupdateActiveLink('home')}>Home</Nav.Link>
-                        <Nav.Link href="#skill" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => ontimeupdateActiveLink('skills')}>Skills</Nav.Link>
-                        <Nav.Link href="#certificates" className={activeLink === 'certificate' ? 'active navbar-link' : 'navbar-link'} onClick={() => ontimeupdateActiveLink('certificates')}>Certificate</Nav.Link>
+                        <Nav.Link className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={scrollToHome}>Home</Nav.Link>
+                        <Nav.Link className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={scrollToSkills}>Skills</Nav.Link>
+                        <Nav.Link className={activeLink === 'certificates' ? 'active navbar-link' : 'navbar-link'} onClick={scrollToCertificates}>Certificate</Nav.Link>
                     </Nav>
                     <span className="navbar-text">
                         <div className="social-icon">
@@ -52,15 +80,12 @@ export const NavBar = () => {
                             <a href="https://www.facebook.com/Karumine7" target="_blank"><img src={navIcon2} alt="" /></a>
                             <a href="https://www.instagram.com/karumine7/" target="_blank"><img src={navIcon3} alt="" /></a>
                         </div>
-                        <button className='resume-bx' onClick={() => console.log('connect')}>
-                            <b href="Supap Nonkaew.pdf" target="_blank"><span>My Resume</span></b>
+                        <button className='resume-bx' onClick={downloadResume}>
+                            <b><span>My Resume</span></b>
                         </button>
                     </span>
-                    <script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js'></script>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
     );
 }
-
-/* อย่าลืมทำ ใส่ไฟล์ */
