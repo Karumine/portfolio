@@ -9,7 +9,6 @@ import meter3 from "../assets/img/meter3.svg";
 export const Skills = () => {
     const responsive = {
         superLargeDesktop: {
-            // ปรับขนาดให้เข้ากับอุปกรณ์
             breakpoint: { max: 4000, min: 3000 },
             items: 5
         },
@@ -18,13 +17,11 @@ export const Skills = () => {
             items: 3,
             slidesToSlide: 3
         },
-        
         mobile: {
             breakpoint: { max: 464, min: 0 },
             items: 1
         }
     };
-
 
     return (
         <section className="skill" id="skills">
@@ -32,40 +29,30 @@ export const Skills = () => {
                 <Row>
                     <Col>
                         <div className="skill-bx">
-                            <h2>
-                                Skills
-                            </h2>
+                            <h2>Skills</h2>
                             <p>Loading...</p>
-                            <Carousel responsive={responsive} infinite={true} className="skill-slider">
+                            <Carousel
+                                responsive={responsive}
+                                infinite={true}
+                                className="skill-slider"
+                            >
                                 <div className="item">
-                                    <img src={meter2} alt="Image"/>
+                                    <img src={meter2} alt="Image" />
                                     <h5>JavaScript</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={meter2} alt="Image"/>
+                                    <img src={meter2} alt="Image" />
                                     <h5>HTML</h5>
                                 </div>
                                 <div className="item">
-                                    <img src={meter2} alt="Image"/>
+                                    <img src={meter2} alt="Image" />
                                     <h5>CSS</h5>
                                 </div>
-                                <div className="item">
-                                    <img src={meter2} alt="Image"/>
-                                    <h5>C#</h5>
-                                </div>
-                                <div className="item">
-                                    <img src={meter2} alt="Image"/>
-                                    <h5>php</h5>
-                                </div>
-
                             </Carousel>
                         </div>
                     </Col>
                 </Row>
-                
             </Container>
-            
         </section>
-    )
-
-}
+    );
+};

@@ -1,0 +1,15 @@
+/* ลูกศรซ้าย */
+.react-multi-carousel-arrow--left {
+    left: -80px; /* ขยับออกจากตำแหน่งเดิม */
+    top: 50%; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    transform: translateY(-50%);
+    z-index: 10; /* ทำให้ลูกศรอยู่เหนือ Carousel */
+}
+
+/* ลูกศรขวา */
+.react-multi-carousel-arrow--right {
+    right: -80px; /* ขยับออกจากตำแหน่งเดิม */
+    top: 50%; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    transform: translateY(-50%);
+    z-index: 10;
+}

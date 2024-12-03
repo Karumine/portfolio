@@ -37,7 +37,7 @@ body {
   background-color: #000000 !important;
   color: #fff !important;
   font-family: 'Centra', sans-serif !important;
-  
+
 }
 
 h1,
@@ -99,26 +99,30 @@ p.danger {
 
 /*********************************css NavBar **************************/
 nav.navbar {
-  padding: 18px 0;
+  padding: 0px 0;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 9999;
   transition: 0.32s ease-in-out;
+  
 }
 
 
 /****************navbar color tab****************/
+
+
 nav.navbar.scrolled {
   padding: 0px 0;
+  
 
-  background-color: rgba(0, 0, 0, 0.7);
 }
 
 nav.navbar a.navbar-brand {
-  width: 9%;
+  width: 7%;
 
 }
+
 
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
@@ -142,7 +146,13 @@ span.navbar-text {
 
 .social-icon {
   display: inline-block;
-  margin-left: 14px;
+  
+}
+
+@media (max-width: 1000px) {
+  .social-icon {
+    margin-top: 20px; /* เพิ่มระยะห่างจากลิงก์เฉพาะในจอเล็ก */
+  }
 }
 
 .social-icon a {
@@ -158,9 +168,220 @@ span.navbar-text {
   border: ipx solid rgba(255, 255, 255, 0.5);
 }
 
+/***************************เปลี่ยน tap bar โทรศัพท์*********************************/
 
 
-/********************************************interact**********************************************/
+
+
+
+/********************************************interact*********************************************/
+
+
+
+
+
+/* ปรับ Navbar */
+/* เมื่อ Navbar ขยาย (toggle) เพิ่มพื้นหลัง */
+/* พื้นหลังของ Navbar แบบ Galaxy (gradient สีมืดที่ไล่สีไปยังสีน้ำเงินและม่วง) */
+
+/* เมื่อเลื่อนลง Navbar จะคงสีเดิม */
+
+
+/* เพิ่มพื้นหลังเบลอให้เมนูแบบ Dropdown */
+
+/* Galaxy Background */
+.navbar {
+
+  background-size: 400% 400%;
+  animation: galaxyBackground 15s ease infinite;
+
+}
+
+.offcanvas {
+  background: linear-gradient(45deg, #00c6ff, #0072ff, #5f4b8b); /* กาแล็กซี่สีฟ้า */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* จัดให้เนื้อหากลางแนวตั้ง */
+  align-items: center; /* จัดให้อยู่กึ่งกลางตามแนวนอน */
+  transform: translateY(30%); /* ขยับเนื้อหาลงมา */
+  height: 100vh; /* ใช้ความสูงเต็มหน้าจอ */
+  padding: 50px;; /* เพิ่ม padding-top เพื่อให้เนื้อหาขยับลง */
+}
+
+.offcanvas-body .navbar-link {
+  color: #fff;
+  transition: color 0.3s;
+  background: linear-gradient(45deg, #00c6ff, #0072ff, #5f4b8b); /* กาแล็กซี่สีฟ้า */
+  margin: 10px 0; /* ระยะห่างระหว่างเมนู */
+  padding: 10px 20px; /* เพิ่ม padding สำหรับปุ่ม */
+  border-radius: 5px; /* ทำให้มุมปุ่มโค้ง */
+  text-align: center;
+}
+
+.offcanvas-body .social-icon a img {
+  filter: brightness(0) invert(1);
+}
+
+
+
+.resume-bx {
+  background-color: #ffd700;
+  color: #1a0033;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: transform 0.3s;
+
+}
+
+.resume-bx:hover {
+  transform: scale(1.1);
+
+}
+
+/* Galaxy Animation */
+@keyframes galaxyBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Starry Effects */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+
+.navbar-collapse {
+  background: rgba(0, 0, 0, 0.5);
+  /* พื้นหลังโปร่งแสง */
+  backdrop-filter: blur(10px);
+  /* เบลอพื้นหลัง */
+  
+}
+
+
+
+.navbar-link:hover,
+.navbar-link.active {
+  color: #ff00ff;
+  /* สีสว่างที่เหมือนแสงดาว เมื่อ hover หรือ active */
+}
+
+
+
+
+.resume-bx:hover {
+  background-color: #7a52a1;
+  /* เปลี่ยนสีปุ่มเมื่อ hover */
+
+}
+
+/* เพิ่มการตกแต่งแสงดาวที่เป็นภาพ */
+.navbar {
+  background: url('https://path/to/your/galaxy-background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* กำหนดให้ปุ่ม My Resume ใช้สีสดใส */
+.resume-bx b span {
+  color: #ff00ff;
+
+}
+
+
+
+
+/* ปรับตำแหน่งของ navbar links และ social icon */
+.navbar .navbar-text {
+  display: flex;
+  justify-content: space-between;
+  /* จัดตำแหน่งให้อยู่ด้านข้าง */
+  width: 100%;
+
+}
+
+/* ปรับตำแหน่งของ social icon */
+.navbar .social-icon {
+  display: flex;
+  gap: 10px;
+}
+
+/* Social Media Icons */
+.social-icon a img {
+  width: 24px;
+  height: 24px;
+}
+
+/* ปุ่ม Resume */
+.resume-bx {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  /* ป้องกันเกินกรอบ */
+  white-space: nowrap;
+  /* ป้องกันข้อความล้นบรรทัด */
+}
+
+.resume-bx span {
+  display: inline-block;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.resume-bx:hover {
+  background-color: #5149d3;
+  /* เปลี่ยนสีเมื่อชี้ */
+}
+
+.resume-bx:hover span {
+  transform: scale(1.1);
+  /* ขยายข้อความ */
+}
+
+.resume-bx:focus {
+  outline: none;
+  /* เอาเส้นรอบออกเมื่อคลิก */
+}
+
+
+/* Media Queries สำหรับหน้าจอเล็ก */
+/* สำหรับหน้าจอขนาดเล็ก (มือถือ) */
+
+@media (max-width: 991px) {
+  .navbar-right {
+    
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+  }
+}
+
 .social-icon a::before {
   content: "";
   width: 50px;
@@ -196,6 +417,7 @@ span.navbar-text {
   position: relative;
   background-color: transparent;
   transition: 0.3s ease-in-out;
+  margin-top: 10px;
 }
 
 .navbar-text button span {
@@ -284,13 +506,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 .banner {
   padding: 0 0 50px 0;
-  position:sticky;
-  
+  position: sticky;
+
 }
+
 .main {
   width: 100%;
   height: 100%;
-  
+
 }
 
 video {
@@ -308,26 +531,52 @@ video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1; /* Ensure the video is behind other content */
+  z-index: -1;
+  /* Ensure the video is behind other content */
 }
 
 .content {
- 
+
   color: aqua;
   margin-top: 140px;
   padding: 60px 50px;
- 
+
   border-radius: 64px;
   text-align: center;
-  
+
 }
 
+/********************************************banner css Hello *******************************/
+
+.fade-text {
+  opacity: 0;
+  animation: fadeInOut 4s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
 
 .banner .tagline {
   font-weight: 700;
   letter-spacing: 0.8px;
   padding: 8px 10px;
-  background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+  background: linear-gradient(45deg, #00c6ff, #0072ff, #5f4b8b);
+  /* กาแล็กซี่สีฟ้า */
   border: 1px solid rgba(255, 255, 255, 0.5);
   font-size: 20px;
   margin-bottom: 16px;
@@ -335,7 +584,7 @@ video {
 }
 
 .banner h1 {
-  font-size: 65px;
+  font-size: 50px;
   font-weight: 700;
   letter-spacing: 0.8px;
   line-height: 1;
@@ -351,27 +600,57 @@ video {
   width: 96%;
 }
 
+
+/********************************* ปุ่ม MORE *************************/
+/* สไตล์สำหรับปุ่ม More */
 .banner button {
-  color: #fff;
-  font-weight: 700;
-  font-size: 20px;
-  margin-top: 60px;
-  letter-spacing: 0.8px;
-  display: flex;
-  align-items: center;
+  background: linear-gradient(45deg, #00c6ff, #0072ff, #5f4b8b);
+  /* กาแล็กซี่สีฟ้า */
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.6s ease, box-shadow 0.6s ease, transform 0.3s ease;
+  /* เพิ่ม transition ให้ smooth */
+  box-shadow: 0 0 20px rgba(0, 204, 255, 0.7), 0 0 40px rgba(0, 204, 255, 0.5), 0 0 80px rgba(0, 204, 255, 0.3);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(0, 204, 255, 0.9), 0 0 15px rgba(0, 204, 255, 0.6);
 }
 
+/* สไตล์เมื่อ hover ที่ปุ่ม */
+.banner button:hover {
+  background: linear-gradient(45deg, #5f4b8b, #00c6ff, #0072ff);
+  /* เปลี่ยนสีเมื่อ hover */
+  box-shadow: 0 0 40px rgba(0, 204, 255, 1), 0 0 60px rgba(0, 204, 255, 0.8), 0 0 100px rgba(0, 204, 255, 0.7);
+  transform: scale(1.05);
+  /* ขยายขนาดปุ่มเมื่อ hover */
+}
+
+/* สไตล์เมื่อคลิกที่ปุ่ม */
+.banner button:active {
+  transform: scale(0.95);
+  /* ขนาดลดลงเล็กน้อยเมื่อคลิก */
+  box-shadow: 0 0 10px rgba(0, 204, 255, 1), 0 0 30px rgba(0, 204, 255, 0.8);
+}
+
+/* สไตล์สำหรับลูกศรในปุ่ม */
 .banner button svg {
-  font-size: 25px;
   margin-left: 10px;
-  transition: 0.3s ease-in-out;
-  line-height: 1;
+  /* เว้นระยะห่างระหว่างข้อความกับลูกศร */
+  transition: transform 0.3s ease-in-out;
+  /* เพิ่ม transition เมื่อ hover */
 }
 
+/* สไตล์เมื่อ hover ที่ลูกศร */
 .banner button:hover svg {
-  margin-left: 25px;
+  transform: scale(1.1);
+  /* ขยายขนาดลูกศรเมื่อ hover */
 }
 
+
+/************************************ตัว logo ขยับได้********************************/
 .banner img {
   animation: updown 3s linear infinite;
 }
@@ -398,8 +677,8 @@ video {
 /*********************************** Skills Css *****************************************/
 .skill {
   padding: 0 0 50px 0;
-  position:sticky;
-  
+  position: sticky;
+
 }
 
 .skill-bx {
@@ -435,6 +714,43 @@ video {
   margin: 0 auto 15px auto;
 }
 
+/* กำหนดสไตล์ทั่วไปสำหรับลูกศร */
+.react-multi-carousel-arrow {
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* สีพื้นหลัง */
+  color: white;
+  /* สีตัวอักษร */
+  border-radius: 50%;
+  /* ปรับเป็นวงกลม */
+  width: 40px;
+  /* ความกว้าง */
+  height: 40px;
+  /* ความสูง */
+  cursor: pointer;
+}
+
+/* ลูกศรซ้าย */
+.react-multi-carousel-arrow--left {
+  left: -60px;
+  /* เพิ่มระยะห่างจาก Carousel ด้านซ้าย */
+  top: 50%;
+  /* จัดให้อยู่ตรงกลางแนวตั้ง */
+  transform: translateY(-50%);
+}
+
+/* ลูกศรขวา */
+.react-multi-carousel-arrow--right {
+  right: -60px;
+  /* เพิ่มระยะห่างจาก Carousel ด้านขวา */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
+
 .background-image-left {
   top: 28%;
   position: absolute;
@@ -458,7 +774,7 @@ video {
 
 .certificate {
   padding: 0 0 50px 0;
-  position:sticky;
+  position: sticky;
 
 }
 
@@ -467,7 +783,7 @@ video {
   border-radius: 64px;
   text-align: center;
   padding: 60px 50px;
-  
+
 
 }
 

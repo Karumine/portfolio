@@ -1,0 +1,46 @@
+/* ปรับแต่งข้อความที่เปลี่ยนไป */
+.fade-text {
+    opacity: 0;
+    animation: fadeInOut 4s ease-in-out infinite;
+  }
+  
+  /* เอฟเฟกต์การเปลี่ยนข้อความ */
+  @keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0;
+    }
+    25%, 75% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  /* ปุ่ม More แบบสวยๆ */
+  .more-btn {
+    background: linear-gradient(45deg, #00c6ff, #0072ff, #5f4b8b); /* กาแล็กซี่สีฟ้า */
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px rgba(0, 204, 255, 0.7), 0 0 40px rgba(0, 204, 255, 0.5), 0 0 80px rgba(0, 204, 255, 0.3);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(0, 204, 255, 0.9), 0 0 15px rgba(0, 204, 255, 0.6);
+  }
+  
+  .more-btn:hover {
+    background: linear-gradient(45deg, #5f4b8b, #00c6ff, #0072ff); /* เปลี่ยนสีเมื่อ hover */
+    box-shadow: 0 0 40px rgba(0, 204, 255, 1), 0 0 60px rgba(0, 204, 255, 0.8), 0 0 100px rgba(0, 204, 255, 0.7);
+    transform: scale(1.05); /* ขยายขนาดปุ่มเมื่อ hover */
+  }
+  
+  .more-btn:active {
+    transform: scale(0.95); /* ขนาดลดลงเล็กน้อยเมื่อคลิก */
+    box-shadow: 0 0 10px rgba(0, 204, 255, 1), 0 0 30px rgba(0, 204, 255, 0.8);
+  }
+  
