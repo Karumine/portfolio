@@ -1,9 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { ArrowRightCircle } from "react-bootstrap-icons";
+
 import headerImg from "../assets/img/logoanime.png";
 import { useState, useEffect } from "react";
 import videobg from "../assets/img/bg.mp4";
-
 
 export const Banner = () => {
   const [textIndex, setTextIndex] = useState(0);
@@ -15,7 +14,7 @@ export const Banner = () => {
     }, 4000); // เปลี่ยนข้อความทุกๆ 4 วินาที
 
     return () => clearInterval(interval); // ล้าง interval เมื่อ component ถูกทำลาย
-  }, []);
+  }, [messages.length]); // ถ้า messages ไม่ได้มีการเปลี่ยนแปลงในภายหลังใน component นี้ การใช้งาน array ว่าง [] เป็น dependency คือวิธีที่เหมาะสมที่สุด
 
   return (
     <section className="banner" id="home">

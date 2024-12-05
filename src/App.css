@@ -1,22 +1,3 @@
-/*custom*/
-@font-face {
-  font-family: Centra;
-  src: url('./assets/font/CentraNo2-Bold.ttf');
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: Centra;
-  src: url('./assets/font/CentraNo2-Medium.ttf');
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: Centra;
-  src: url('./assets/font/CentraNo2-Book.ttf');
-  font-weight: 400;
-}
-
 /* css*/
 * {
   margin: 0;
@@ -105,7 +86,7 @@ nav.navbar {
   top: 0;
   z-index: 9999;
   transition: 0.32s ease-in-out;
-  
+
 }
 
 
@@ -114,7 +95,7 @@ nav.navbar {
 
 nav.navbar.scrolled {
   padding: 0px 0;
-  
+
 
 }
 
@@ -146,12 +127,13 @@ span.navbar-text {
 
 .social-icon {
   display: inline-block;
-  
+
 }
 
 @media (max-width: 1000px) {
   .social-icon {
-    margin-top: 20px; /* เพิ่มระยะห่างจากลิงก์เฉพาะในจอเล็ก */
+    margin-top: 20px;
+    /* เพิ่มระยะห่างจากลิงก์เฉพาะในจอเล็ก */
   }
 }
 
@@ -198,24 +180,35 @@ span.navbar-text {
 }
 
 .offcanvas {
-  background: linear-gradient(45deg, #00c6ff, #0072ff, #5f4b8b); /* กาแล็กซี่สีฟ้า */
+  background: linear-gradient(45deg, #00c6ff, #0072ff, #5f4b8b);
+  /* กาแล็กซี่สีฟ้า */
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* จัดให้เนื้อหากลางแนวตั้ง */
-  align-items: center; /* จัดให้อยู่กึ่งกลางตามแนวนอน */
-  transform: translateY(30%); /* ขยับเนื้อหาลงมา */
-  height: 100vh; /* ใช้ความสูงเต็มหน้าจอ */
-  padding: 50px;; /* เพิ่ม padding-top เพื่อให้เนื้อหาขยับลง */
+  justify-content: center;
+  /* จัดให้เนื้อหากลางแนวตั้ง */
+  align-items: center;
+  /* จัดให้อยู่กึ่งกลางตามแนวนอน */
+  transform: translateY(30%);
+  /* ขยับเนื้อหาลงมา */
+  height: 100vh;
+  /* ใช้ความสูงเต็มหน้าจอ */
+  padding: 50px;
+  ;
+  /* เพิ่ม padding-top เพื่อให้เนื้อหาขยับลง */
 }
 
 .offcanvas-body .navbar-link {
   color: #fff;
   transition: color 0.3s;
-  background: linear-gradient(45deg, #00c6ff, #0072ff, #5f4b8b); /* กาแล็กซี่สีฟ้า */
-  margin: 10px 0; /* ระยะห่างระหว่างเมนู */
-  padding: 10px 20px; /* เพิ่ม padding สำหรับปุ่ม */
-  border-radius: 5px; /* ทำให้มุมปุ่มโค้ง */
+  background: linear-gradient(45deg, #00c6ff, #0072ff, #5f4b8b);
+  /* กาแล็กซี่สีฟ้า */
+  margin: 10px 0;
+  /* ระยะห่างระหว่างเมนู */
+  padding: 10px 20px;
+  /* เพิ่ม padding สำหรับปุ่ม */
+  border-radius: 5px;
+  /* ทำให้มุมปุ่มโค้ง */
   text-align: center;
 }
 
@@ -275,7 +268,7 @@ body::after {
   /* พื้นหลังโปร่งแสง */
   backdrop-filter: blur(10px);
   /* เบลอพื้นหลัง */
-  
+
 }
 
 
@@ -303,7 +296,7 @@ body::after {
 
 /* กำหนดให้ปุ่ม My Resume ใช้สีสดใส */
 .resume-bx b span {
-  color: #ff00ff;
+  color: aqua;
 
 }
 
@@ -375,7 +368,7 @@ body::after {
 
 @media (max-width: 991px) {
   .navbar-right {
-    
+
     flex-direction: column;
     align-items: flex-start;
     padding: 10px 15px;
@@ -532,18 +525,13 @@ video {
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  /* Ensure the video is behind other content */
+  /* อยู่หลัง content other*/
 }
 
 .content {
 
   color: aqua;
   margin-top: 140px;
-  padding: 60px 50px;
-
-  border-radius: 64px;
-  text-align: center;
-
 }
 
 /********************************************banner css Hello *******************************/
@@ -674,19 +662,32 @@ video {
 }
 
 
-/*********************************** Skills Css *****************************************/
+/*********************************** Skills Css ***********************/
 .skill {
   padding: 0 0 50px 0;
   position: sticky;
-
+  color: #00ffff;
 }
+
+
+
 
 .skill-bx {
   background: #151515;
+  color: #00ffff;
+  /* สี aqua */
   border-radius: 64px;
   text-align: center;
   padding: 60px 50px;
   position: relative;
+  text-decoration: none;
+  /* ลบเส้นใต้จากลิงก์ */
+  height: 100%;
+}
+
+.skill-bx .item {
+  display: block;
+  text-decoration: none;
 }
 
 .skill h2 {
@@ -703,50 +704,21 @@ video {
   margin: 14px 0 75px 0;
 }
 
-.skill-slider {
-  width: 80%;
-  margin: 0 auto;
-  position: relative;
+.skill-slider h5 {
+  margin-top: 10px;
+  /* Space between icon and text */
 }
 
-.skill-slider .item img {
-  width: 45%;
-  margin: 0 auto 15px auto;
+.skill-slider .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
 }
 
-/* กำหนดสไตล์ทั่วไปสำหรับลูกศร */
-.react-multi-carousel-arrow {
-  position: absolute;
-  z-index: 10;
-  background-color: rgba(0, 0, 0, 0.5);
-  /* สีพื้นหลัง */
-  color: white;
-  /* สีตัวอักษร */
-  border-radius: 50%;
-  /* ปรับเป็นวงกลม */
-  width: 40px;
-  /* ความกว้าง */
-  height: 40px;
-  /* ความสูง */
-  cursor: pointer;
-}
 
-/* ลูกศรซ้าย */
-.react-multi-carousel-arrow--left {
-  left: -60px;
-  /* เพิ่มระยะห่างจาก Carousel ด้านซ้าย */
-  top: 50%;
-  /* จัดให้อยู่ตรงกลางแนวตั้ง */
-  transform: translateY(-50%);
-}
-
-/* ลูกศรขวา */
-.react-multi-carousel-arrow--right {
-  right: -60px;
-  /* เพิ่มระยะห่างจาก Carousel ด้านขวา */
-  top: 50%;
-  transform: translateY(-50%);
-}
 
 
 
@@ -758,6 +730,83 @@ video {
   width: 40%;
   z-index: -4;
 }
+
+
+/*********************************Experience**********************/
+.experience {
+  padding: 0 0 50px 0;
+  position: sticky;
+  color: #00ffff;
+  /* สีของข้อความทั้งหมดใน .experience จะเป็น aqua */
+}
+
+.experience-bx {
+  background: #151515;
+  color: #00ffff;
+  /* กำหนดให้ข้อความใน .experience-bx เป็นสี aqua */
+  border-radius: 64px;
+  text-align: center;
+  padding: 60px 50px;
+  position: relative;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation smooth */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  justify-content: space-between;
+  border: 2px solid transparent; /* ตั้งค่าขอบให้มีขนาด แต่โปร่งใส */ /*bug เนื้อหาขยับ แก้ได้แล้ว*/
+}
+
+.experience-bx p {
+  color: #ffffff;
+  /* สีของข้อความ */
+  margin-top: 10px;
+  margin-bottom: 20px;
+  /* เพิ่มระยะห่างด้านล่าง */
+  line-height: 1.6;
+  /* เพิ่มความสูงของบรรทัดเพื่อให้ข้อความไม่แน่นเกินไป */
+  text-align: center;
+  /* จัดข้อความให้อยู่กลาง */
+  font-size: 16px;
+  /* ขนาดฟอนต์ที่เหมาะสม */
+  font-family: 'Arial', sans-serif;
+  /* เลือกฟอนต์ที่ดูเรียบง่าย */
+  font-weight: 400;
+  /* ความหนาของตัวอักษร */
+  letter-spacing: 0.5px;
+  /* เพิ่มระยะห่างระหว่างตัวอักษรเล็กน้อยเพื่อให้อ่านง่าย */
+  word-wrap: break-word;
+  /* แยกคำที่ยาวเกินไปให้ตกบรรทัด */
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  /* เพิ่มเงาให้ข้อความดูเด่นขึ้น */
+}
+
+.experience-bx:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+  border: 2px solid #00ffff;
+  z-index: 10;
+  transform-origin: center;
+}
+
+.experience h2 {
+  font-size: 45px;
+  font-weight: 700;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.experience-bx h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.experience-bx:hover h2 {
+  transform: translateY(0);
+}
+
+
+
+
 
 
 
@@ -921,6 +970,197 @@ video {
   right: 0;
   z-index: -4;
 }
+
+
+/********************************************************* contrack ************************************************/
+
+/* Contact.css */
+
+
+/* Contact.css */
+
+/* ปุ่มแสดง/ซ่อนฟอร์ม */
+.toggle-button {
+  position: sticky;
+  background: linear-gradient(45deg, #00c6ff, #0072ff, #5f4b8b);
+  /* กาแล็กซี่สีฟ้า */
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background 0.6s ease, box-shadow 0.6s ease, transform 0.3s ease;
+  /* เพิ่ม transition ให้ smooth */
+  box-shadow: 0 0 20px rgba(0, 204, 255, 0.7), 0 0 40px rgba(0, 204, 255, 0.5), 0 0 80px rgba(0, 204, 255, 0.3);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(0, 204, 255, 0.9), 0 0 15px rgba(0, 204, 255, 0.6);
+  margin-bottom: 40px; 
+}
+
+.toggle-button:hover {
+  background: linear-gradient(45deg, #5f4b8b, #00c6ff, #0072ff);
+  /* เปลี่ยนสีเมื่อ hover */
+  box-shadow: 0 0 40px rgba(0, 204, 255, 1), 0 0 60px rgba(0, 204, 255, 0.8), 0 0 100px rgba(0, 204, 255, 0.7);
+  transform: scale(1.05);
+  /* ขยายขนาดปุ่มเมื่อ hover */
+}
+
+/* พื้นหลังมืด */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* พื้นหลังมืด */
+  z-index: 1000; /* ให้อยู่เหนือฟอร์ม */
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* ฟอร์ม Modal */
+.contact-form-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* จัดฟอร์มให้อยู่กลางหน้าจอ */
+  background: #11ccd3;
+  padding: 30px;
+  border-radius: 64px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 10000; /* ให้อยู่เหนือพื้นหลัง */
+  width: 70%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* เพิ่มการ transition สำหรับการแสดงผล */
+}
+
+/* เมื่อแสดงผล ฟอร์มจะมีความโปร่งแสง */
+.contact-form-modal.show {
+  opacity: 1;
+}
+
+.contact-form-modal h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+textarea {
+  height: 150px;
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+/* ปุ่มปิด (ย่อ) */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #ff0000;
+}
+
+
+/*********************************Footer*********************************/
+/* Footer.css */
+.footer {
+  background-color: #151515;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin: 0 auto;
+  
+  max-width: 1200px;
+}
+
+.contact-info h4,
+.social-media h4 {
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+}
+
+.social-media a {
+  color: #00c6ff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.social-media a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  margin-top: 10px; /* ลดระยะห่างระหว่างข้อความ */
+  font-size: 12px; /* ทำให้ฟอนต์เล็กลง */
+}
+
+.copyright a {
+  color: #00c6ff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.copyright a:hover {
+  text-decoration: underline;
+}
+
+
+
+
 
 /************ certificate Css ************
 .contact {

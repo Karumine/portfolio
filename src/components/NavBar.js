@@ -67,10 +67,10 @@ export const NavBar = () => {
                     Skills
                   </Nav.Link>
                   <Nav.Link
-                    className={activeLink === 'certificates' ? 'active navbar-link' : 'navbar-link'}
-                    onClick={() => scrollToSection('certificates', 'certificates')}
+                    className={activeLink === 'experience' ? 'active navbar-link' : 'navbar-link'}
+                    onClick={() => scrollToSection('experience', 'experience')}
                   >
-                    Certificates
+                    experience
                   </Nav.Link>
                 </Nav>
                 <div className="social-icon">
@@ -108,10 +108,10 @@ export const NavBar = () => {
                   Skills
                 </Nav.Link>
                 <Nav.Link
-                  className={activeLink === 'certificates' ? 'active navbar-link' : 'navbar-link'}
-                  onClick={() => scrollToSection('certificates', 'certificates')}
+                  className={activeLink === 'experience' ? 'active navbar-link' : 'navbar-link'}
+                  onClick={() => scrollToSection('experience', 'experience')}
                 >
-                  Certificates
+                  experience
                 </Nav.Link>
               </Nav>
               <span className="navbar-text">

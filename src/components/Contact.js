@@ -1,96 +1,70 @@
-import { useState } from "react";
-import { Container } from "react-bootstrap";
+import React, { useState } from "react";
 
-export const Contact = () => {
-    const formInitailDetails = {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        message: '',
-    }
+const Contact = () => {
+  const [isVisible, setIsVisible] = useState(false); // สร้าง state สำหรับการควบคุมการแสดงฟอร์ม
 
-    const [formDetails, setFormDetails] = useState(formInitailDetails);
-    const [buttonText, setButtonText] = useState('Send');
-    const [status, setStatus] = useState({});
+  const toggleForm = () => {
+    setIsVisible(!isVisible); // สลับการแสดงฟอร์ม
+  };
 
-    const onFormUpdate = (category, value) => {
-        setFormDetails({
-            ...formDetails,
-            [category]: value
-        })
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("ส่งข้อความแล้ว!");
+    setIsVisible(false); // ปิดฟอร์มเมื่อส่งข้อมูล
+  };
 
-    const handleSubmit = () => {
+  return (
+    <div className="contact-section">
+      {/* ปุ่มกดเพื่อแสดง/ซ่อนฟอร์ม */}
+      <button onClick={toggleForm} className="toggle-button">
+        {isVisible ? "ยกเลิก" : "ติดต่อเรา"}
+      </button>
 
-    }
-    return (
-        <section className="contact" id="connect">
-            <Container>
-                <Row className="align-item-center">
-                    <Col md={6}>
-                        <img src={''} alt="Contact us" />
-                    </Col>
-                    <Col md={6}>
-                        <h2>Get In Touch</h2>
-                        <form onSubmit={handleSubmit}>
-                            <Row>
-                                <Col sm={6} className="px-1">
-                                    <input
-                                        type="text"
-                                        value={formDetails.firstName}
-                                        placeholder="First Name"
-                                        onChange={(e) => onFormUpdate('firstName', e.target.value)}
-                                    />
-                                </Col>
+      {/* หาก isVisible เป็น true จะแสดงฟอร์ม */}
+      {isVisible && (
+        <>
+          <div className="overlay" onClick={toggleForm}></div> {/* พื้นหลังมืด */}
+          <div className={`contact-form-modal ${isVisible ? "show" : ""}`}>
+            <button className="close-button" onClick={toggleForm}>
+              ×
+            </button>
+            <h2>ติดต่อเรา</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="name">ชื่อ:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="กรุณากรอกชื่อของคุณ"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">อีเมล:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="กรุณากรอกอีเมลของคุณ"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="message">ข้อความ:</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="กรุณากรอกข้อความของคุณ"
+                />
+              </div>
+              <button type="submit" className="submit-button">
+                ส่งข้อความ
+              </button>
+            </form>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
 
-                                <Col sm={6} className="px-1">
-                                    <input
-                                        type="text"
-                                        value={formDetails.lastName}
-                                        placeholder="Last Name"
-                                        onChange={(e) => onFormUpdate('lastName', e.target.value)}
-                                    />
-                                </Col>
-
-                                <Col sm={6} className="px-1">
-                                    <input
-                                        type="text"
-                                        value={formDetails.email}
-                                        placeholder="Email Address"
-                                        onChange={(e) => onFormUpdate('email', e.target.value)}
-                                    />
-                                </Col>
-
-                                <Col sm={6} className="px-1">
-                                    <input
-                                        type="text"
-                                        value={formDetails.phone}
-                                        placeholder="Phone Number"
-                                        onChange={(e) => onFormUpdate('phone', e.target.value)}
-                                    />
-                                </Col>
-
-                                <Col>
-                                    <texttarea
-                                        row="6"
-                                        value={formDetails.message}
-                                        placeholder="Message"
-                                        onChange={(e) => onFormUpdate('message', e.target.value)}
-                                    />
-                                    <button type="submit"><span>{buttonText}</span></button>
-                                </Col>
-                                {
-                                    status.message &&
-                                    <Col>
-                                        <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
-                                    </Col>
-                                }
-                            </Row>
-                        </form>
-                    </Col>
-                </Row>
-            </Container>
-        </section>
-    )
-}
+export default Contact;
