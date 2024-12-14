@@ -8,7 +8,8 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 75px;
+  scroll-padding-top: 200px; /* ปรับค่าตามความสูงของ Navbar */
+
 }
 
 body {
@@ -18,7 +19,7 @@ body {
   background-color: #000000 !important;
   color: #fff !important;
   font-family: 'Centra', sans-serif !important;
-
+  height: 100%;
 }
 
 h1,
@@ -95,8 +96,10 @@ nav.navbar {
 
 nav.navbar.scrolled {
   padding: 0px 0;
-
-
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* เพิ่มเงา */
+  background-color: #000 !important;
+  /* เปลี่ยนเป็นสีดำเมื่อเลื่อน */
 }
 
 nav.navbar a.navbar-brand {
@@ -173,10 +176,12 @@ span.navbar-text {
 
 /* Galaxy Background */
 .navbar {
-
-  background-size: 400% 400%;
-  animation: galaxyBackground 15s ease infinite;
-
+  background-color: transparent !important;
+  /* เพิ่ม !important เพื่อให้แน่ใจว่าไม่มีการทับซ้อน */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  /* เพิ่ม transition สำหรับการเปลี่ยนแปลงนุ่มนวล */
+  box-shadow: none;
+  /* ให้แน่ใจว่าไม่มีเงาเมื่อเริ่มต้น */
 }
 
 .offcanvas {
@@ -263,13 +268,7 @@ body::after {
 }
 
 
-.navbar-collapse {
-  background: rgba(0, 0, 0, 0.5);
-  /* พื้นหลังโปร่งแสง */
-  backdrop-filter: blur(10px);
-  /* เบลอพื้นหลัง */
 
-}
 
 
 
@@ -279,13 +278,9 @@ body::after {
   /* สีสว่างที่เหมือนแสงดาว เมื่อ hover หรือ active */
 }
 
-
-
-
 .resume-bx:hover {
   background-color: #7a52a1;
   /* เปลี่ยนสีปุ่มเมื่อ hover */
-
 }
 
 /* เพิ่มการตกแต่งแสงดาวที่เป็นภาพ */
@@ -296,7 +291,7 @@ body::after {
 
 /* กำหนดให้ปุ่ม My Resume ใช้สีสดใส */
 .resume-bx b span {
-  color: aqua;
+  color: rgb(248, 5, 5);
 
 }
 
@@ -749,11 +744,14 @@ video {
   padding: 60px 50px;
   position: relative;
   height: 100%;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation smooth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Animation smooth */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   z-index: 1;
   justify-content: space-between;
-  border: 2px solid transparent; /* ตั้งค่าขอบให้มีขนาด แต่โปร่งใส */ /*bug เนื้อหาขยับ แก้ได้แล้ว*/
+  border: 2px solid transparent;
+  /* ตั้งค่าขอบให้มีขนาด แต่โปร่งใส */
+  /*bug เนื้อหาขยับ แก้ได้แล้ว*/
 }
 
 .experience-bx p {
@@ -807,7 +805,168 @@ video {
 
 
 
+/******************************************API Showcase***********************/
 
+
+.apishowcase {
+  padding: 0 0 50px 0;
+  position: sticky;
+
+}
+
+.apishowcase-bx {
+  background: #151515;
+  border-radius: 64px;
+  text-align: center;
+  padding: 60px 50px;
+
+
+}
+
+.apishowcase h2 {
+  font-size: 45px;
+  font-weight: 700;
+  text-align: center;
+  color: aqua;
+}
+
+.apishowcase p {
+  color: #B8B8B8;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  margin: 14px auto 30px auto;
+  text-align: center;
+  width: 56%;
+}
+
+.apishowcase .nav.nav-pills {
+  width: 72%;
+  margin: 0 auto;
+  border-radius: 50px;
+  background-color: rgb(255 255 255 / 10%);
+  overflow: hidden;
+}
+
+.apishowcase .nav.nav-pills .nav-item {
+  width: 33.33333%;
+}
+
+.apishowcase .nav.nav-pills .nav-link {
+  background-color: transparent;
+  border-radius: 0;
+  padding: 17px 0;
+  color: #fff;
+  width: 100%;
+  font-size: 17px;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  z-index: 0;
+}
+
+.apishowcase .nav.nav-pills .nav-link::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(45deg, #00c6ff, #0072ff, #5f4b8b);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: 0.3s ease-in-out;
+}
+
+.apishowcase .nav.nav-pills .nav-link.active::before {
+  width: 100% !important;
+}
+
+.nav-link#apishowcase-tabs-tab-first {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 55px 0px 0px 55px;
+}
+
+.nav-link#apishowcase-tabs-tab-second {
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.nav-link#apishowcase-tabs-tab-third {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0 55px 55px 0;
+}
+
+.apishowcase-imgbx {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  margin-top: 24px;
+
+}
+
+@media (max-width: 1000px) {
+  .apishowcase-imgbx {
+    /* เมื่อหน้าจอเล็กลงเหลือแค่ 2 การ์ดในแถว */
+    padding: 10px;
+  }
+}
+
+.apishowcase-imgbx::before {
+  content: "";
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  opacity: 0.85;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  transition: 0.4s ease-in-out;
+}
+
+.apishowcase-imgbx:hover::before {
+  height: 100%;
+}
+
+.apishowcase-txtx {
+  position: absolute;
+  text-align: center;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s ease-in-out;
+  opacity: 0;
+  width: 100%;
+
+}
+
+.apishowcase-imgbx:hover .apishowcase-txtx {
+  top: 50%;
+  opacity: 1;
+}
+
+.apishowcase-txtx h4 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1.1em;
+}
+
+.apishowcase-txtx span {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.8px;
+}
+
+.background-image-right {
+  top: 20%;
+  position: absolute;
+  bottom: 0;
+  width: 35%;
+  right: 0;
+  z-index: -4;
+}
 
 
 
@@ -840,6 +999,7 @@ video {
   font-size: 45px;
   font-weight: 700;
   text-align: center;
+  color: aqua;
 }
 
 .certificate p {
@@ -884,7 +1044,7 @@ video {
   position: absolute;
   width: 0;
   height: 100%;
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  background: linear-gradient(45deg, #00c6ff, #0072ff, #5f4b8b);
   top: 0;
   left: 0;
   z-index: -1;
@@ -941,6 +1101,7 @@ video {
   transition: 0.5s ease-in-out;
   opacity: 0;
   width: 100%;
+
 }
 
 .certificate-imgbx:hover .certificate-txtx {
@@ -995,7 +1156,7 @@ video {
   /* เพิ่ม transition ให้ smooth */
   box-shadow: 0 0 20px rgba(0, 204, 255, 0.7), 0 0 40px rgba(0, 204, 255, 0.5), 0 0 80px rgba(0, 204, 255, 0.3);
   text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(0, 204, 255, 0.9), 0 0 15px rgba(0, 204, 255, 0.6);
-  margin-bottom: 40px; 
+  margin-bottom: 40px;
 }
 
 .toggle-button:hover {
@@ -1013,8 +1174,10 @@ video {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* พื้นหลังมืด */
-  z-index: 1000; /* ให้อยู่เหนือฟอร์ม */
+  background: rgba(0, 0, 0, 0.5);
+  /* พื้นหลังมืด */
+  z-index: 1000;
+  /* ให้อยู่เหนือฟอร์ม */
   transition: opacity 0.5s ease-in-out;
 }
 
@@ -1023,19 +1186,22 @@ video {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* จัดฟอร์มให้อยู่กลางหน้าจอ */
+  transform: translate(-50%, -50%);
+  /* จัดฟอร์มให้อยู่กลางหน้าจอ */
   background: #11ccd3;
   padding: 30px;
   border-radius: 64px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  z-index: 10000; /* ให้อยู่เหนือพื้นหลัง */
+  z-index: 10000;
+  /* ให้อยู่เหนือพื้นหลัง */
   width: 70%;
   max-width: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out; /* เพิ่มการ transition สำหรับการแสดงผล */
+  transition: opacity 0.5s ease-in-out;
+  /* เพิ่มการ transition สำหรับการแสดงผล */
 }
 
 /* เมื่อแสดงผล ฟอร์มจะมีความโปร่งแสง */
@@ -1113,7 +1279,7 @@ textarea {
   bottom: 0;
   width: 100%;
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  
+
 }
 
 .footer-content {
@@ -1123,7 +1289,7 @@ textarea {
   align-items: center;
   gap: 20px;
   margin: 0 auto;
-  
+
   max-width: 1200px;
 }
 
@@ -1144,8 +1310,10 @@ textarea {
 }
 
 .copyright {
-  margin-top: 10px; /* ลดระยะห่างระหว่างข้อความ */
-  font-size: 12px; /* ทำให้ฟอนต์เล็กลง */
+  margin-top: 10px;
+  /* ลดระยะห่างระหว่างข้อความ */
+  font-size: 12px;
+  /* ทำให้ฟอนต์เล็กลง */
 }
 
 .copyright a {
@@ -1157,6 +1325,11 @@ textarea {
 .copyright a:hover {
   text-decoration: underline;
 }
+
+
+/**********************API******************/
+
+
 
 
 

@@ -37,6 +37,16 @@ export const NavBar = () => {
     }
   };
 
+  const scrollToTop = () => {
+    // เลื่อนขึ้นไปที่ element ที่มี id="home"
+    const element = document.getElementById('home');
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start', // เลื่อนไปยังจุดเริ่มต้นของ element
+      });
+    }
+  };
   const downloadResume = () => {
     window.open(resumePdf, '_blank');
   };
@@ -56,7 +66,10 @@ export const NavBar = () => {
                 <Nav>
                   <Nav.Link
                     className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'}
-                    onClick={() => scrollToSection('home', 'home')}
+                    onClick={() => {
+                      scrollToTop(); // เรียกใช้ฟังก์ชันเลื่อนไปที่ด้านบนสุด
+                      setActiveLink('home'); // ตั้งค่าลิงก์ active
+                    }}
                   >
                     Home
                   </Nav.Link>

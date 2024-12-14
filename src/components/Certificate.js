@@ -11,8 +11,8 @@ export const Certificates = () => {
             title: "Loading",
             description: "Loading",
             imgUrl: OrangeVisual,
-          },
-        
+        },
+
     ];
 
     return (
@@ -23,7 +23,7 @@ export const Certificates = () => {
                         <div className="certificate-bx">
                             <h2>Certificate</h2>
                             <p>Loading</p>
-                            <Tab.Container id="certificates-tabs" defaultActiveKey="first">
+                            <Tab.Container defaultActiveKey="first">
                                 <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-item-center" id="pills-tab">
                                     <Nav.Item>
                                         <Nav.Link eventKey="first">Tab one</Nav.Link>
@@ -52,17 +52,17 @@ export const Certificates = () => {
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="second">
                                         <p>Loading</p>
-                                        </Tab.Pane>
+                                    </Tab.Pane>
                                     <Tab.Pane eventKey="third">
                                         <p>Loading</p>
-                                        </Tab.Pane>
+                                    </Tab.Pane>
                                 </Tab.Content>
                             </Tab.Container>
                         </div>
                     </Col>
                 </Row>
             </Container>
-            
+
         </section >
     )
 }

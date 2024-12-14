@@ -15,11 +15,10 @@ export const Banner = () => {
 
     return () => clearInterval(interval); // ล้าง interval เมื่อ component ถูกทำลาย
   }, [messages.length]); // ถ้า messages ไม่ได้มีการเปลี่ยนแปลงในภายหลังใน component นี้ การใช้งาน array ว่าง [] เป็น dependency คือวิธีที่เหมาะสมที่สุด
-
+  //****<video src={videobg} autoPlay loop muted className="video-bg" />***/
   return (
     <section className="banner" id="home">
       <video src={videobg} autoPlay loop muted className="video-bg" />
-
       <Container className="content">
         <div className="main">
           <Row className="align-items-center">
