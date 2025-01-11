@@ -3,6 +3,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/logoanime.png";
 import { useState, useEffect } from "react";
 import videobg from "../assets/img/bg.mp4";
+import { useHistory } from 'react-router-dom';
+
 
 export const Banner = () => {
   const [textIndex, setTextIndex] = useState(0);
@@ -22,7 +24,6 @@ export const Banner = () => {
   //****<video src={videobg} autoPlay loop muted className="video-bg" />***/
   return (
     <section className="banner" id="home">
-      <video src={videobg} autoPlay loop muted className="video-bg" />
       
       <Container className="content">
         <div className="main">
