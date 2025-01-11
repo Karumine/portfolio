@@ -3,8 +3,15 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { FaJs, FaHtml5, FaCss3Alt, FaReact, FaBootstrap } from "react-icons/fa";
 import { SiMysql, SiFirebase, SiDotnet, SiTypescript } from "react-icons/si";
+import { useEffect } from "react";
 
 export const Skills = () => {
+
+    useEffect(() => {
+        // ทำการรีเฟรชและเปลี่ยนเส้นทางไปหน้า home เมื่อหน้านี้ถูกโหลด
+        window.location.hash = '#home';
+    }, []);
+
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },

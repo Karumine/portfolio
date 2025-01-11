@@ -6,7 +6,11 @@ import videobg from "../assets/img/bg.mp4";
 
 export const Banner = () => {
   const [textIndex, setTextIndex] = useState(0);
-  const messages = ["Welcome to My Portfolio", "Let's Explore My Work", "Contact Me for Collaborations"];
+  const messages = [
+    "Welcome to My Portfolio",
+    "Let's Explore My Work",
+    "Contact Me for Collaborations"
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,25 +23,26 @@ export const Banner = () => {
   return (
     <section className="banner" id="home">
       <video src={videobg} autoPlay loop muted className="video-bg" />
+      
       <Container className="content">
         <div className="main">
           <Row className="align-items-center">
-            <Col xs={12} md={6} xl={5}>
-              <img src={headerImg} alt="Header Img" />
+            <Col xs={12} md={6} xl={5} className="img-col">
+              <img src={headerImg} alt="Header Img" className="header-img" />
             </Col>
             <Col xs={12} md={6} xl={7}>
-              <span className="tagline">Welcome to my Portfolio</span>
-              <h1>
+              <span className="tagline fade-in">Welcome to my Portfolio</span>
+              <h1 className="slide-up">
                 <span className="wrap">
                   <span className="fade-text">{messages[textIndex]}</span>
                 </span>
               </h1>
-              <p>
+              <p className="intro-text fade-in">
                 Hello. My name is Mr. Supap Nonkaew, Nickname is Not. I used to do an internship on the web.
                 I have the ability to write PHP. My project at college is a mobile app. Knowledge of JavaScript,
                 React, C#.Net is an additional skill. I aim to pursue a career as a software developer in the backend.
               </p>
-              <button onClick={() => console.log('connect')}>More</button>
+              <button className="btn-connect" onClick={() => console.log('connect')}>More</button>
             </Col>
           </Row>
         </div>

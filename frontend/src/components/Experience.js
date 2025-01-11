@@ -1,7 +1,12 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { FaReact, FaDesktop, FaCogs } from "react-icons/fa";
+import { useEffect } from "react";
 
 export const Experience = () => {
+    useEffect(() => {
+        // ทำการรีเฟรชและเปลี่ยนเส้นทางไปหน้า home เมื่อหน้านี้ถูกโหลด
+        window.location.hash = '#home';
+    }, []);
     return (
         <section className="experience" id="experience">
             <Container>

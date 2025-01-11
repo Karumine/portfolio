@@ -1188,7 +1188,7 @@ video {
   left: 50%;
   transform: translate(-50%, -50%);
   /* จัดฟอร์มให้อยู่กลางหน้าจอ */
-  background: #11ccd3;
+  background: linear-gradient(45deg, #00c6ff, #0072ff, #5f4b8b);
   padding: 30px;
   border-radius: 64px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -1328,10 +1328,30 @@ textarea {
 
 
 /**********************API******************/
+.Toastify__toast-container {
+  position: fixed; /* ทำให้แสดงผลอยู่ที่ตำแหน่งคงที่ */
+  top: 60px;  /* ปรับระยะห่างจากด้านบนให้พอดีกับ Navbar */
+  left: 50%;  /* จัดกลางจากซ้าย */
+  transform: translateX(-50%);  /* ใช้ transform เพื่อให้วางตรงกลาง */
+  z-index: 1050 !important;  /* ให้สูงกว่า navbar */
+}
 
+.Toastify__toast {
+  top: 100px; /* เพิ่มระยะห่างเล็กน้อยจากตัว Toast ถ้าจำเป็น */
+  margin-top: 10px; /* เพิ่มระยะห่างเล็กน้อยจากตัว Toast */
+  display: flex; /* ใช้ flexbox เพื่อจัดข้อความให้ตรงกลาง */
+  justify-content: center; /* จัดข้อความให้กึ่งกลางแนวนอน */
+  align-items: center; /* จัดข้อความให้กึ่งกลางแนวตั้ง */
+  height: 100%; /* ให้กรอบ Toast มีความสูงเต็ม */
+}
 
-
-
+.Toastify__toast-body {
+  display: flex; /* ใช้ flexbox ภายใน Toast body */
+  justify-content: center; /* จัดข้อความให้กึ่งกลางแนวนอน */
+  align-items: center; /* จัดข้อความให้กึ่งกลางแนวตั้ง */
+  text-align: center; /* กำหนดการจัดข้อความให้ตรงกลาง */
+  width: 100%; /* กำหนดความกว้างให้เต็มพื้นที่ */
+}
 
 
 

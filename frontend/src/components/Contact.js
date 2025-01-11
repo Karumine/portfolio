@@ -25,9 +25,7 @@ const Contact = () => {
         <>
           <div className="overlay" onClick={toggleForm}></div> {/* พื้นหลังมืด */}
           <div className={`contact-form-modal ${isVisible ? "show" : ""}`}>
-            <button className="close-button" onClick={toggleForm}>
-              ×
-            </button>
+            
             <h2>ติดต่อเรา</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
