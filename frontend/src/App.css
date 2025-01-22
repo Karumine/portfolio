@@ -971,7 +971,10 @@ video {
   z-index: -4;
 }
 
-
+.modal-dark .modal-content {
+  background-color: #4e4e4e; /* สีดำ */
+  color: white; /* สีข้อความขาว */
+}
 
 /************************************ CertificateCard Css 
 .certificate-bx {

@@ -31,7 +31,7 @@ const WebSkills = () => {
       }, 500); // ดีเลย์ 1 วินาที (1000 ms)
     };
 
-    // ฟังการเลื่อนหน้าจอ
+    
     window.addEventListener('wheel', handleWheel, { passive: false });
 
     // ลบ event listener เมื่อคอมโพเนนต์ถูก unmount
@@ -39,6 +39,28 @@ const WebSkills = () => {
       window.removeEventListener('wheel', handleWheel);
     };
   }, [currentPage, isScrolling]); // ตรวจสอบทั้ง currentPage และ isScrolling
+
+  useEffect(() => {
+    const disableZoom = (event) => {
+      if (event.ctrlKey || event.deltaY || event.scale) {
+        event.preventDefault();
+      }
+    };
+  
+    // ปิดการซูมด้วย wheel และ gesture
+    window.addEventListener('wheel', disableZoom, { passive: false });
+    window.addEventListener('gesturestart', disableZoom, { passive: false });
+    window.addEventListener('gesturechange', disableZoom, { passive: false });
+  
+    // ลบ Event Listener เมื่อ component ถูก unmount
+    return () => {
+      window.removeEventListener('wheel', disableZoom);
+      window.removeEventListener('gesturestart', disableZoom);
+      window.removeEventListener('gesturechange', disableZoom);
+    };
+  }, []);
+
+
 
   return (
     <div

@@ -1,18 +1,81 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { CertificateCard } from "./CertificateCard";
 import { Link } from "react-router-dom"; // ใช้ Link จาก react-router-dom
+import WebSkills from "../assets/img/1727963115852.jpg";
+import appmoblie from "../assets/img/moblie-bg.jpg";
+import React, { useState } from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import appmoblie1 from "../assets/img/1.jpg";
+import appmoblie2 from "../assets/img/2.jpg";
+import appmoblie3 from "../assets/img/3.jpg";
+import appmoblie4 from "../assets/img/4.jpg";
+import appmoblie5 from "../assets/img/5.jpg";
+import appmoblie6 from "../assets/img/6.jpg";
+import appmoblie7 from "../assets/img/7.jpg";
+import appmoblie8 from "../assets/img/8.jpg";
 
-import OrangeVisual from "../assets/img/Orange Visual.png";
 
 export const Certificates = () => {
+    const [show, setShow] = useState(false);
+    const [currentImage, setCurrentImage] = useState(null);
+
+    const handleShow = (image) => {
+        setCurrentImage(image);
+        setShow(true);
+    };
+
+    const handleClose = () => setShow(false);
+
+
     const certificates = [
         {
-            title: "Example Certificate",
-            description: "This is a description of the certificate",
-            imgUrl: OrangeVisual,
+            title: "More",
+            description: "Web karumine",
+            imgUrl: WebSkills,
             link: "/WebSkills", // ลิงก์ที่ไปยังหน้าเปล่า
         },
     ];
+
+    const moblie = [
+        {
+            title: "More",
+            description: "Moblie App",
+            imgUrl: appmoblie,
+            imgUrl: appmoblie,
+        },
+
+    ];
+
+    const moblieapp = [
+        {
+            imgUrl: appmoblie1,
+        },
+        {
+            imgUrl: appmoblie2,
+        },
+        {
+            imgUrl: appmoblie3,
+        },
+        {
+            imgUrl: appmoblie4,
+        },
+        {
+            imgUrl: appmoblie5,
+        },
+        {
+            imgUrl: appmoblie6,
+        },
+        {
+            imgUrl: appmoblie7,
+        },
+        {
+            imgUrl: appmoblie8,
+        },
+
+    ];
+
+
 
     return (
         <section className="certificate" id="certificates">
@@ -55,7 +118,56 @@ export const Certificates = () => {
                                         </Row>
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="second">
-                                        <p>Loading</p>
+                                        <Row>
+                                            {moblie.map((certificate, index) => (
+                                                <Col key={index} size={12} sm={6} md={4}>
+                                                    <div
+                                                        className="certificate-imgbx"
+                                                        onClick={handleShow}
+                                                        style={{ cursor: "pointer" }}
+                                                    >
+                                                        <img src={certificate.imgUrl} alt={certificate.title} />
+                                                        <div className="certificate-txtx">
+                                                            <h4>{certificate.title}</h4>
+                                                            <span>{certificate.description}</span>
+                                                        </div>
+                                                    </div>
+                                                </Col>
+                                            ))}
+                                        </Row>
+
+                                        {/* Modal for displaying multiple images */}
+                                        <Modal show={show} onHide={handleClose} centered size="lg">
+                                            <Modal.Header closeButton>
+                                                <Modal.Title>Gallery</Modal.Title>
+                                            </Modal.Header>
+                                            <Modal.Body>
+                                                <Row>
+                                                    {moblieapp.map((certificate, index) => (
+                                                        <Col key={index} xs={12} sm={6} md={4}>
+                                                            <div >
+                                                                <img
+                                                                    src={certificate.imgUrl}
+                                                                    alt={certificate.title}
+                                                                    style={{
+                                                                        width: "100%",
+                                                                        height: "auto",
+                                                                        marginBottom: "15px",
+                                                                    }}
+                                                                />
+                                                                
+                                                            </div>
+                                                        </Col>
+                                                    ))}
+                                                </Row>
+                                            </Modal.Body>
+                                            <Modal.Footer>
+                                                <Button variant="secondary" onClick={handleClose}>
+                                                    Close
+                                                </Button>
+                                            </Modal.Footer>
+                                        </Modal>
+
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="third">
                                         <p>Loading</p>
