@@ -33,7 +33,11 @@ function App() {
         />
 
         {/* หน้าใหม่ */}
-        <Route path="/WebSkills" element={<WebSkills />} />
+        <Route path="/WebSkills" element={<WebSkills />} 
+        />
+        {/* หน้าใหม่ */}
+        <Route path="/WebSkills" element={<WebSkills />} 
+        />
       </Routes>
     </Router>
   );

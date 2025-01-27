@@ -1,58 +1,47 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import * as THREE from 'three'; // นำเข้า Three.js
+import './webskills.css';
 
 const WebSkills = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 4; // จำนวนหน้าที่มี
+  const totalPages = 4;
   const [isScrolling, setIsScrolling] = useState(false); // สถานะการเลื่อน
+  const [selected, setSelected] = useState(''); // สถานะเมนูที่เลือก
+  const threeCanvasRef = useRef(null);
 
-  // ใช้ useEffect เพื่อจัดการกับการจับ scroll
+  // เลื่อนหน้า
   useEffect(() => {
     const handleWheel = (event) => {
-      if (isScrolling) return; // ถ้ากำลังเลื่อนอยู่จะไม่ทำการเลื่อน
+      if (isScrolling) return;
 
-      // เลื่อนหน้าโดยทันที
       if (event.deltaY > 0) {
-        if (currentPage < totalPages) {
-          setCurrentPage(currentPage + 1); // เลื่อนลง
-        }
+        if (currentPage < totalPages) setCurrentPage(currentPage + 1);
       } else if (event.deltaY < 0) {
-        if (currentPage > 1) {
-          setCurrentPage(currentPage - 1); // เลื่อนขึ้น
-        }
+        if (currentPage > 1) setCurrentPage(currentPage - 1);
       }
 
-      // เมื่อเริ่มเลื่อน จะตั้งสถานะ isScrolling เป็น true
-      setIsScrolling(true); 
-
-      // หลังจากการเลื่อนเสร็จ (1 วินาที) จะให้สามารถเลื่อนได้อีกครั้ง
-      setTimeout(() => {
-        // รีเซ็ต isScrolling หลังจาก 1 วินาทีเพื่อให้เลื่อนครั้งถัดไปได้
-        setIsScrolling(false);
-      }, 500); // ดีเลย์ 1 วินาที (1000 ms)
+      setIsScrolling(true);
+      setTimeout(() => setIsScrolling(false), 500);
     };
 
-    
     window.addEventListener('wheel', handleWheel, { passive: false });
-
-    // ลบ event listener เมื่อคอมโพเนนต์ถูก unmount
     return () => {
       window.removeEventListener('wheel', handleWheel);
     };
-  }, [currentPage, isScrolling]); // ตรวจสอบทั้ง currentPage และ isScrolling
+  }, [currentPage, isScrolling]);
 
+  // กันซูม
   useEffect(() => {
     const disableZoom = (event) => {
       if (event.ctrlKey || event.deltaY || event.scale) {
         event.preventDefault();
       }
     };
-  
-    // ปิดการซูมด้วย wheel และ gesture
+
     window.addEventListener('wheel', disableZoom, { passive: false });
     window.addEventListener('gesturestart', disableZoom, { passive: false });
     window.addEventListener('gesturechange', disableZoom, { passive: false });
-  
-    // ลบ Event Listener เมื่อ component ถูก unmount
+
     return () => {
       window.removeEventListener('wheel', disableZoom);
       window.removeEventListener('gesturestart', disableZoom);
@@ -60,105 +49,106 @@ const WebSkills = () => {
     };
   }, []);
 
+  // เพิ่มกราฟิก 3D ในหน้าที่ 2
+  useEffect(() => {
+    if (currentPage === 2 && threeCanvasRef.current) {
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        threeCanvasRef.current.clientWidth / threeCanvasRef.current.clientHeight,
+        0.1,
+        1000
+      );
+      const renderer = new THREE.WebGLRenderer({ canvas: threeCanvasRef.current });
+      renderer.setSize(
+        threeCanvasRef.current.clientWidth,
+        threeCanvasRef.current.clientHeight
+      );
 
+      const geometry = new THREE.BoxGeometry();
+      const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+      const cube = new THREE.Mesh(geometry, material);
+      scene.add(cube);
+
+      camera.position.z = 1;
+
+      const animate = () => {
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.01;
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      };
+      animate();
+
+      return () => {
+        renderer.dispose();
+      };
+    }
+  }, [currentPage]);
+
+  // ฟังก์ชัน handleClick สำหรับการเลือกเมนู
+  const handleClick = (menu) => {
+    setSelected(menu);
+    switch (menu) {
+      case 'หน้าหลัก':
+        setCurrentPage(1);
+        break;
+      case 'ข้อมูลตัวละคร':
+        setCurrentPage(2);
+        break;
+      default:
+        setCurrentPage(1);
+        break;
+    }
+  };
 
   return (
-    <div
-      style={{
-        height: '100vh', // ความสูงเต็มหน้าจอ
-        width: '100vw', // ความกว้างเต็มหน้าจอ
-        margin: 0,
-        padding: 0,
-        overflow: 'hidden', // ซ่อนแถบเลื่อน
-        position: 'relative', // สำหรับการจัดการตำแหน่งของแต่ละหน้า
-      }}
-    >
+    <div className="main">
+      {/* แสดง Navbar เฉพาะในหน้าอื่นๆ */}
+      {currentPage !== 1 && (
+        <div className="navbar2">
+          <img src="https://fastcdn.hoyoverse.com/mi18n/hk4e_global/m20250113hy6b9f6sjk/upload/7bd4c5fe5920d8d255c1fdc429c3ec02_3741102009722655885.png?x-oss-process=image/format,webp/quality,Q_90"
+            alt="Logo Icon" className="navbar-icon" />
+          <div onClick={() => handleClick('หน้าหลัก')} className={`pz-button ${selected === 'หน้าหลัก' ? 'active' : ''}`}>
+            หน้าหลัก
+          </div>
+          <div onClick={() => handleClick('ข้อมูลตัวละคร')} className={`pz-button ${selected === 'ข้อมูลตัวละคร' ? 'active' : ''}`}>
+            ข้อมูลตัวละคร
+          </div>
+        </div>
+      )}
+
       <div
+        className="pages"
         style={{
-          display: 'flex',
-          flexDirection: 'column',
-          transition: 'transform 0.3s ease-in-out', // การเปลี่ยนแปลงที่นุ่มนวล
-          transform: `translateY(-${(currentPage - 1) * 110}vh)`, // เลื่อนหน้าไปตาม currentPage
-          width: '100%',
-          height: '440vh', // ครอบคลุมทั้ง 4 หน้า
+          transform: `translateY(-${(currentPage - 1) * 100}vh)`,
+          transition: 'transform 0.5s ease',
         }}
       >
         {/* หน้า 1 */}
-        <div
-          style={{
-            height: '110vh',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-            color: 'white',
-            textAlign: 'center',
-            backgroundImage: 'url(' + require('../assets/img/1727963115852.jpg') + ')', // ภาพพื้นหลังหลัก
-            backgroundSize: '100%',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        >
-          <h1>Welcome to Teyvat</h1>
-          <p>Start your adventure in this mystical world.</p>
+        <div className="page page1">
+          <h1>Welcome to the WebSkills App!</h1>
         </div>
 
         {/* หน้า 2 */}
-        <div
-          style={{
-            height: '110vh',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-            color: 'white',
-            textAlign: 'center',
-            backgroundImage: 'url(' + require('../assets/img/Mavuika.png') + ')', // ภาพพื้นหลังหลัก
-            backgroundSize: '100%',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        >
-          <h1>Explore the Lands of Teyvat</h1>
-          <p>There are many regions waiting to be discovered.</p>
+        <div className="page page2">
+          {/* Canvas สำหรับกราฟิก 3D */}
+          <canvas
+            ref={threeCanvasRef}
+            className="three-canvas"
+            style={{ width: '100%', height: '400px', zIndex: 1 }}
+          ></canvas>
         </div>
 
         {/* หน้า 3 */}
-        <div
-          style={{
-            height: '110vh',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-            color: 'white',
-            textAlign: 'center',
-            backgroundImage: 'url(' + require('../assets/img/Citlali.png') + ')', // ภาพพื้นหลังหลัก
-            backgroundSize: '100%',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        >
+        <div className="page page3">
           <h1>Explore the Lands of Teyvat</h1>
           <p>There are many regions waiting to be discovered.</p>
         </div>
 
         {/* หน้า 4 */}
-        <div
-          style={{
-            height: '110vh',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'column',
-            color: 'white',
-            textAlign: 'center',
-            backgroundImage: 'url(' + require('../assets/img/1731714737900.jpg') + ')', // ภาพพื้นหลังหลัก
-            backgroundSize: '100%',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        >
+        <div className="page page4">
           <h1>Uncover Secrets</h1>
           <p>Unravel the mysteries of Teyvat.</p>
         </div>
