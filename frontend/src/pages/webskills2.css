@@ -1,0 +1,39 @@
+/* การจัดเรียงพื้นที่ให้เต็มหน้าจอ */
+html {
+  font-size: 1vw; /* ปรับขนาดฟอนต์ตามความกว้างของหน้าจอ */
+}
+
+.flexible-fullscreen-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  /* ความสูงเต็มหน้าจอ */
+  width: 100vw;
+  overflow: hidden;  /* ไม่ให้มีการเลื่อน */
+  margin: 0;
+  padding: 0;
+  position: relative;
+  
+}
+
+.pz-home-pz-fullpage {
+  width: 100vw; /* ขนาดลดลงตามหน้าจอ */
+  height: 100vh;
+  position: absolute; /* ทำให้เต็มพื้นที่ */
+  top: 0;
+  left: 0;
+  background-image: url("https://fastcdn.hoyoverse.com/mi18n/hk4e_global/m20250113hy6b9f6sjk/upload/569de362d73044b243be00793c85c406_1404736908423909817.jpg?x-oss-process=image/format,webp/quality,Q_90");
+  background-size: cover;  /* ทำให้ภาพเต็มหน้าจอ */
+  background-position: center center;  /* ให้ภาพอยู่ตรงกลาง */
+  background-attachment: fixed;  /* ทำให้ภาพยึดติดเมื่อเลื่อนหน้าจอ */
+  z-index: -1;  /* เพื่อให้ภาพเป็นพื้นหลัง */
+}
+
+/* การจัดการข้อความให้อยู่กลาง */
+h1 {
+  color: white;
+  font-size: 3rem; /* จะเปลี่ยนขนาดตาม viewport */
+  text-align: center;
+  z-index: 1;  /* ให้ข้อความอยู่บนสุดของพื้นหลัง */
+}
+

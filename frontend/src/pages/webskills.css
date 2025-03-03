@@ -1,4 +1,4 @@
-.main {
+.main1 {
     height: 100vh;
     width: 100%;
     margin: 0;
@@ -17,7 +17,8 @@
     /* ทำให้ container แต่ละหน้าเต็มหน้าจอ */
     /* ครอบคลุมทั้ง 4 หน้า */
     flex-grow: 1;
-    
+
+
 }
 
 .page {
@@ -35,7 +36,7 @@
     /* จัดตำแหน่งตรงกลาง */
     background-repeat: no-repeat;
     /* ไม่ให้ภาพซ้ำ */
-
+    width: 100%;
 }
 
 .page1 {
@@ -43,7 +44,8 @@
 }
 
 .page2 {
-    background-image: url('../assets/img/bg-page2.png');
+    background-image: url('../assets/img/page1.png');
+
 }
 
 .page3 {
@@ -59,32 +61,142 @@
     padding-top: 70px;
     /* เพิ่มพื้นที่ด้านบนเพื่อให้เนื้อหาไม่บัง navbar */
 }
+
 /*****************************Navbar*********************/
-.navbar2 {
+.navbar1 {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 0%;
     width: 100%;
     background: url(https://act-webstatic.hoyoverse.com/puzzle/hk4e/pz_mDZ7Xhhdj3/resource/puzzle/2025/01/24/60b50831afde015fa02ba8fd008d3c6d_6402648985503015322.png?x-oss-process=image/format,webp/quality,Q_90) center center / cover no-repeat;
-    z-index: 10; /* ให้อยู่ด้านบนสุด */
-    padding: 20px;
-    color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* เพิ่มเงา */
-    display: flex; /* ใช้ Flexbox เพื่อจัดเรียงองค์ประกอบในแนวนอน */
-    justify-content: flex-start; /* จัดการให้เนื้อหาภายใน navbar ห่างกัน */
-    align-items: center; /* จัดแนวเนื้อหาให้อยู่กึ่งกลางในแนวตั้ง */
-    
-  }
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    z-index: 1000;
+    padding-left: 150px;
 
-.navbar-icon {
-    width: 5vw; /* ขนาดไอคอนแบบ responsive */
-    height: auto;
-    margin-right: 40px; /* เพิ่มระยะห่างระหว่างรูปภาพกับข้อความถัดไป */
 }
 
-.navbar2 div {
-    font-size: 16px;
-    font-weight: bold;
-    margin-left: 20px; /* เพิ่มระยะห่างระหว่างแต่ละรายการ */
-  }
+.navbar2 {
 
+    display: flex;
+    top: 0;
+    left: 0;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 1000;
+    padding-left: 50px;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 2vw;
+    /* ทำให้ flex item ขึ้นบรรทัดใหม่เมื่อเกินขนาด */
+    display: flex;
+    padding: 0 5vw;
+    /* ระยะซ้าย-ขวา */
+}
+
+
+
+.navbar-icon {
+
+    top: 10px;
+    /* ห่างจากขอบบน 10px */
+    left: 200px;
+    height: 60px;
+    width: auto;
+
+}
+
+.pz-button {
+
+    color: white;
+    font-size: 16px;
+    padding: 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+
+
+.pz-button.active {
+    background-image: url(data:image/webp;base64,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);
+}
+
+
+.pz-text {
+    font-size: 20;
+    color: rgb(41, 45, 67);
+    text-align: center;
+    white-space: pre-wrap;
+    font-weight: normal;
+    font-style: normal;
+    --p-bottom: 0;
+    line-height: 1.5;
+    transform-origin: center center;
+    word-wrap: break-word;
+    white-space: normal;
+    line-height: 1.5;
+    /* เพิ่มระยะห่างระหว่างบรรทัด */
+
+}
+
+/* Media Query */
+@media (max-width: 768px) {
+    .navbar1 {
+        height: 12vh;
+    }
+
+    .pz-button {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar2 {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1vw;
+    }
+}
+
+
+/****************หน้าข้อมูลตัวละคร******/
+.page2 {
+    position: relative;
+    height: 100vh; /* กำหนดความสูงของ div */
+    width: 100%; /* กำหนดความกว้างของ div */
+    display: flex;
+    overflow: hidden; /* เพื่อไม่ให้เกิดการเลื่อนเกินขอบ */
+  }
+  
+  .background-page2 {
+    background-image: url(https://act-webstatic.hoyoverse.com/puzzle/hk4e/pz_mDZ7Xhhdj3/resource/hippo/2803/a6d67b3f7d32d847bf73a1dcc0a44496_2362.png?x-oss-process=image/format,webp/quality,Q_90);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 25%; /* ขนาดของกรอบ */
+    height: 80%; /* ขนาดของกรอบ */
+    position: absolute;
+    top: 38px; /* เริ่มที่ด้านบน */
+    left: 100px; /* เริ่มที่ด้านซ้าย */
+    z-index: 9;
+    display: flex;
+    justify-content: center; /* จัดตำแหน่งข้อความแนวนอน */
+    align-items: center; /* จัดตำแหน่งข้อความแนวตั้ง */
+  }
+  
+  .logo-element-page2 {
+    background-image: url(https://act-webstatic.hoyoverse.com/puzzle/hk4e/pz_mDZ7Xhhdj3/resource/hippo/2803/a6d67b3f7d32d847bf73a1dcc0a44496_2340.png?x-oss-process=image/format,webp/quality,Q_90);
+
+
+    
+  }
+  
+  
+
+  

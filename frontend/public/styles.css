@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Serif SC', serif;
+    background: url('https://fastcdn.hoyoverse.com/mi18n/hk4e_global/m20250113hy6b9f6sjk/upload/569de362d73044b243be00793c85c406_1404736908423909817.jpg?x-oss-process=image/format,webp/quality,Q_90') no-repeat center center/cover;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 1rem;
+    background-image: url(https://act-webstatic.hoyoverse.com/puzzle/hk4e/pz_mDZ7Xhhdj3/resource/puzzle/2025/01/24/60b50831afde015fa02ba8fd008d3c6d_6402648985503015322.png?x-oss-process=image/format,webp/quality,Q_90);
+    color: white;
+    z-index: 10;
+    
+    top: -100px;
+    /* ซ่อน Navbar เมื่อโหลดหน้า */
+    height: 6rem;
+    /* กำหนดความสูงให้ .navbar */
+}
+
+.nav-links {
+    display: flex;
+    width: 50%;
+    /* ให้ nav-links ขยายเต็มความกว้าง */
+    padding: 30;
+    margin: 0;
+    list-style: none;
+    justify-content: flex-start;
+    /* หรือ space-evenly ถ้าต้องการให้เว้นระยะห่างเท่าๆ กัน */
+    height: 5rem;
+}
+
+.navbar ul {
+    list-style: none;
+    /*คลุมรวม*/
+    display: flex;
+    gap: 20px;
+
+}
+
+.nav-links li {
+    display: flex;
+    flex-grow: 1;
+    /* ทำให้ li ขยายเท่ากัน */
+    justify-content: center;
+    /* จัดข้อความให้อยู่ตรงกลาง */
+    align-items: center;
+    /* จัดข้อความให้อยู่กึ่งกลางในแนวตั้ง */
+    text-align: center;
+
+}
+
+.nav-links a {
+    display: block;
+    padding: 10px 0;
+    /* เพิ่ม padding เพื่อให้ลิงก์มีพื้นที่กว้างขึ้น */
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    /* สีข้อความ */
+    font-size: 16px;
+
+}
+
+
+/* Hero Section */
+
+.section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+}
+
+.section-1 {
+    background: url('https://act-webstatic.hoyoverse.com/puzzle/hk4e/pz_mDZ7Xhhdj3/resource/hippo/2803/a6d67b3f7d32d847bf73a1dcc0a44496_2599.png?x-oss-process=image/format,webp/quality,Q_90') no-repeat center center/cover;
+    display: grid;
+    place-items: center;
+    /* จัดกึ่งกลางทั้งในแนวนอนและแนวตั้ง */
+    
+    /* ให้มีความสูงเต็มหน้าจอ */
+}
+
+.img-mizuki img {
+    max-width: 70rem;
+    /* ให้ขนาดของภาพไม่เกินขนาดหน้าจอ */
+    max-height: 70rem;
+    /* ให้ขนาดของภาพไม่เกินขนาดหน้าจอ */
+}
+
+.section-2 {
+    background: url('https://act-webstatic.hoyoverse.com/puzzle/hk4e/pz_mDZ7Xhhdj3/resource/hippo/2803/a6d67b3f7d32d847bf73a1dcc0a44496_2599.png?x-oss-process=image/format,webp/quality,Q_90') no-repeat center center/cover;
+}
+
+.section-3 {
+    background: url('https://act-webstatic.hoyoverse.com/puzzle/hk4e/pz_mDZ7Xhhdj3/resource/hippo/2803/a6d67b3f7d32d847bf73a1dcc0a44496_2599.png?x-oss-process=image/format,webp/quality,Q_90') no-repeat center center/cover;
+}

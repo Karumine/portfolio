@@ -28,14 +28,33 @@ export const Certificates = () => {
     const handleClose = () => setShow(false);
 
 
-    const certificates = [
+    const work1 = [
         {
             title: "More",
-            description: "Web karumine",
+            description: "Web karumine.js",
             imgUrl: WebSkills,
             link: "/WebSkills", // ลิงก์ที่ไปยังหน้าเปล่า
         },
     ];
+
+    const work2 = [
+        {
+            title: "More",
+            description: "Web karumine.jsx",
+            imgUrl: WebSkills,
+            link: "/WebSkills2", // ลิงก์ที่ไปยังหน้าเปล่า
+        },
+    ];
+
+    const work3 = [
+        {
+            title: "More",
+            description: "Web karumine.html",
+            imgUrl: WebSkills,
+            link: "http://localhost:3000/WebSkills3.html", // ลิงก์ที่ไปยังหน้าเปล่า
+        },
+    ];
+
 
     const moblie = [
         {
@@ -100,22 +119,25 @@ export const Certificates = () => {
                                 <Tab.Content>
                                     <Tab.Pane eventKey="first">
                                         <Row>
-                                            {certificates.map((certificate, index) => {
+                                            {[...work1, ...work2, ...work3].map((work1, index) => {
                                                 return (
                                                     <Col key={index} size={12} sm={6} md={4}>
-                                                        <Link to={certificate.link}>
+                                                        <Link to={work1.link}>
                                                             <div className="certificate-imgbx">
-                                                                <img src={certificate.imgUrl} alt={certificate.title} />
+                                                                <img src={work1.imgUrl} alt={work1.title} />
                                                                 <div className="certificate-txtx">
-                                                                    <h4>{certificate.title}</h4>
-                                                                    <span>{certificate.description}</span>
+                                                                    <h4>{work1.title}</h4>
+                                                                    <span>{work1.description}</span>
                                                                 </div>
                                                             </div>
+                                                            
                                                         </Link>
                                                     </Col>
+                                                    
                                                 );
                                             })}
                                         </Row>
+                                        
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="second">
                                         <Row>
